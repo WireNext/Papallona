@@ -1,0 +1,56 @@
+---
+// src/components/Nav.astro
+const navItems = [
+  { name: 'Inicio', url: '/' },
+  { name: 'El Espacio', url: '/#espacio' },
+  { name: 'Talleres', url: '/#talleres' },
+  { name: 'Contacto y Ubicación', url: '/contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-[#faf7f2]/90 backdrop-blur-md border-b border-[#e6dfd3] transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="text-2xl md:text-3xl font-normal tracking-wide text-[#2c4a3e] hover:opacity-80 transition-opacity">
+      papallona<span class="text-[#c97d60] font-serif">.</span>
+    </a>
+
+    <nav class="hidden md:flex space-x-8">
+      {navItems.map(item => (
+        <a href={item.url} class="text-sm font-medium tracking-wide text-[#5c5449] hover:text-[#2c4a3e] transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1px] after:bottom-0 after:left-0 after:bg-[#2c4a3e] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+          {item.name}
+        </a>
+      ))}
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden p-2 text-[#5c5449] hover:text-[#2c4a3e] focus:outline-none" aria-label="Abrir menú">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-[#faf7f2] border-b border-[#e6dfd3] px-6 py-4 space-y-3 shadow-inner">
+    {navItems.map(item => (
+      <a href={item.url} class="block text-base font-medium text-[#5c5449] hover:text-[#2c4a3e] py-1">
+        {item.name}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Cerrar el menú al hacer click en un enlace (útil para las anclas en la misma página)
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

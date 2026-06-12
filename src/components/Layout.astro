@@ -1,0 +1,34 @@
+---
+// src/components/Layout.astro
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Papallona - Espacio de experiencias y talleres en Castellón. Un lugar para conectar, crear y compartir." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Papallona</title>
+    <meta name="description" content={description} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#faf7f2] text-[#3c3730] font-sans antialiased selection:bg-[#e6dfd3]">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+</style>

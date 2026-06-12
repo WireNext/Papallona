@@ -1,0 +1,128 @@
+---
+// src/pages/index.astro
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import WorkshopCard from '../components/WorkshopCard.astro';
+import Footer from '../components/Footer.astro';
+
+// Array de datos modificable para gestionar los talleres fácilmente
+const upcomingWorkshops = [
+  {
+    title: "Cerámica Modelada a Mano y Té Consciente",
+    date: "Sábado, 20 de Junio • 10:30h",
+    description: "Conecta con el tacto de la arcilla creando tu propia taza orgánica. Incluye cata guiada de infusiones botánicas de la zona.",
+    image: "https://images.unsplash.com/photo-1565192647048-f997ed87f5e2?auto=format&fit=crop&q=80&w=800",
+    price: "45€"
+  },
+  {
+    title: "Acuarela Botánica y Pigmentos Naturales",
+    date: "Viernes, 26 de Junio • 18:00h",
+    description: "Aprende a ilustrar elementos de la flora local experimentando con texturas, transparencias y composiciones libres llenas de color.",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800",
+    price: "40€"
+  },
+  {
+    title: "Cosmética Sólida Natural y Autocuidado",
+    date: "Domingo, 5 de Julio • 11:00h",
+    description: "Elabora tus propios champús y bálsamos utilizando aceites esenciales puros, lavanda y plantas medicinales respetuosas contigo.",
+    image: "https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&q=80&w=800",
+    price: "50€"
+  }
+];
+---
+
+<Layout title="Espacio de Experiencias y Talleres">
+  <Nav />
+
+  <main>
+    <section class="max-w-6xl mx-auto px-6 pt-12 md:pt-20 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+        <span class="text-xs font-semibold tracking-widest text-[#c97d60] uppercase bg-[#c97d60]/10 px-4 py-2 rounded-full">Un respiro creativo en Castellón</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-[#2c4a3e] font-normal leading-[1.15] text-balance">
+          Un lugar para <span class="italic font-light text-[#c97d60]">crear</span>, sentir y compartir de forma pausada.
+        </h1>
+        <p class="text-base md:text-lg text-[#6b6152] font-light max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          Bienvenido a Papallona. Un punto de encuentro donde artesanos, creativos y mentes curiosas se reúnen para experimentar mediante talleres manuales y vivencias enriquecedoras.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <a href="#talleres" class="bg-[#2c4a3e] hover:bg-[#1f362d] text-white font-medium text-sm tracking-wide px-8 py-4 rounded-full transition-colors shadow-md shadow-[#2c4a3e]/10 text-center">
+            Ver próximos talleres
+          </a>
+          <a href="/contacto" class="border border-[#2c4a3e] text-[#2c4a3e] hover:bg-[#2c4a3e]/5 font-medium text-sm tracking-wide px-8 py-4 rounded-full transition-colors text-center">
+            Dónde estamos
+          </a>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-6 flex justify-center">
+        <div class="relative w-full max-w-md md:max-w-lg aspect-[4/5] rounded-[40px_10px_40px_40px] overflow-hidden shadow-xl border-4 border-white">
+          <img 
+            src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000" 
+            alt="Ambiente acogedor del taller Papallona" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="espacio" class="bg-[#f3ede2] py-20 md:py-28 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 space-y-24">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 order-2 md:order-1">
+            <h2 class="text-3xl md:text-4xl text-[#2c4a3e] font-normal leading-tight">
+              Diseñado desde el mimo y la luz natural
+            </h2>
+            <p class="text-base md:text-lg text-[#6b6152] font-light leading-relaxed">
+              Nuestro local en Castellón está concebido como una prolongación de la naturaleza. Paredes texturizadas en tonos tierra, maderas recuperadas y plantas que respiran junto a ti. Un lienzo en blanco libre de ruidos estresantes para que tu mente desconecte nada más cruzar la puerta.
+            </p>
+          </div>
+          <div class="order-1 md:order-2 flex justify-center">
+            <div class="rounded-[20px_60px_20px_40px] overflow-hidden aspect-video md:aspect-[4/3] w-full max-w-md shadow-md">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Detalle del espacio interior" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="flex justify-center">
+            <div class="rounded-[50px_30px_60px_20px] overflow-hidden aspect-video md:aspect-[4/3] w-full max-w-md shadow-md">
+              <img src="https://images.unsplash.com/photo-1527269537047-40fbe5034115?auto=format&fit=crop&q=80&w=800" alt="Materiales y procesos artesanales" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="space-y-6">
+            <h2 class="text-3xl md:text-4xl text-[#2c4a3e] font-normal leading-tight">
+              Experiencias guiadas por manos apasionadas
+            </h2>
+            <p class="text-base md:text-lg text-[#6b6152] font-light leading-relaxed">
+              Aquí no vienes solo a aprender una técnica; vienes a vivir un proceso. Colaboramos con artesanos locales y expertos que transmiten su oficio con calma, paciencia y absoluto respeto por los tiempos de aprendizaje de cada persona. Los grupos son siempre reducidos para cuidar cada detalle.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="talleres" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="text-center max-w-xl mx-auto mb-16 space-y-4">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl text-[#2c4a3e] font-normal">Nuestros Talleres</h2>
+        <div class="h-[1px] w-16 bg-[#c97d60] mx-auto my-2"></div>
+        <p class="text-base text-[#6b6152] font-light">Plazas limitadas para garantizar un ambiente íntimo y un aprendizaje personalizado. No se requiere experiencia previa.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {upcomingWorkshops.map(workshop => (
+          <WorkshopCard 
+            image={workshop.image}
+            title={workshop.title}
+            date={workshop.date}
+            description={workshop.description}
+            price={workshop.price}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
